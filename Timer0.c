@@ -18,7 +18,7 @@ void timer0_CTC(void)
 	TCCR0A = (2<<WGM00);	//CTC enable
 	TCCR0B = (3<<CS00);		//64 PS
 	TIMSK0 = (1<<OCIE2A);	//Output cmp match A interrupt enable
-	OCR0A  = 250 -1;		
+	OCR0A  = 250 -1;		//TOP 	
 	
 	sei();	//interrupciones globales
 
@@ -29,9 +29,9 @@ ISR (TIMER0_COMPA_vect)
 	static uint16_t mSecCnt;
 	mSecCnt++; /* Incrementa contador de milisegundos */
 	if( mSecCnt == 1000 ){
-		Clock_Update();
+		Clock_Update();		//actualizando reloj
 		UART0_puts("\n\r");
-		Clock_Display();
-		mSecCnt = 0;
+		Clock_Display();	//desplegando reloj	
+		mSecCnt = 0;		//reiniciando cuenta de ms
 	}
 }
