@@ -20,7 +20,8 @@ void timer0_CTC(void)
 	TIMSK0 = (1<<OCIE2A);	//Output cmp match A interrupt enable
 	OCR0A  = 250 -1;		
 	
-	sei();
+	sei();	//interrupciones globales
+
 }
 
 ISR (TIMER0_COMPA_vect)
@@ -31,5 +32,6 @@ ISR (TIMER0_COMPA_vect)
 		Clock_Update();
 		UART0_puts("\n\r");
 		Clock_Display();
+		mSecCnt = 0;
 	}
 }
