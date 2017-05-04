@@ -1,5 +1,6 @@
 #include <avr/interrupt.h>
 #include <inttypes.h>
+#include "Clock.h"
 static volatile uint8_t SecFlag;
 
 void Timer0_Ini ( void ){
@@ -10,23 +11,25 @@ void Timer0_Ini ( void ){
 	TIMSK0=0x01; /* habilita interrupcion del Timer0 */
 	sei(); /* habilita interrupciones (global) */
 }
-uint8_t Timer0_SecFlag ( void ){
-	if( SecFlag ){
-		SecFlag=0;
-		return 1;
-	}
-	else{
-		return 0;
-	}
+
+void timer0_CTC(void)
+{
+	TCNT0  = 0;	//incializando timer en 0
+	TCCR0A = (2<<WGM00);	//CTC enable
+	TCCR0B = (3<<CS00);		//64 PS
+	TIMSK0 = (1<<OCIE2A);	//Output cmp match A interrupt enable
+	OCR0A  = 250 -1;		
+	
+	sei();
 }
-ISR (TIMER0_OVF_vect)
+
+ISR (TIMER0_COMPA_vect)
 { 
-	/* TIMER0_OVF_vect */
 	static uint16_t mSecCnt;
-	TCNT0+=0x06; /* reinicializar Timer0 sin perder conteo */
 	mSecCnt++; /* Incrementa contador de milisegundos */
-	if( mSecCnt==1000 ){
-		mSecCnt=0;
-		SecFlag=1; /* Bandera de Segundos */
+	if( mSecCnt == 1000 ){
+		Clock_Update();
+		UART0_puts("\n\r");
+		Clock_Display();
 	}
 }

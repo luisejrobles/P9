@@ -37,7 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../main.c \
+../Clock.c \
 ../p9.c \
 ../Timer0.c \
 ../UART.c
@@ -50,25 +50,25 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-main.o \
+Clock.o \
 p9.o \
 Timer0.o \
 UART.o
 
 OBJS_AS_ARGS +=  \
-main.o \
+Clock.o \
 p9.o \
 Timer0.o \
 UART.o
 
 C_DEPS +=  \
-main.d \
+Clock.d \
 p9.d \
 Timer0.d \
 UART.d
 
 C_DEPS_AS_ARGS +=  \
-main.d \
+Clock.d \
 p9.d \
 Timer0.d \
 UART.d

@@ -1,5 +1,4 @@
-Timer0.d Timer0.o: .././Timer0.c \
- d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+p9.d p9.o: .././p9.c \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -12,9 +11,9 @@ Timer0.d Timer0.o: .././Timer0.c \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././Clock.h
-
-d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+ .././Timer0.h \
+ d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ .././Clock.h .././UART.h
 
 d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -40,4 +39,10 @@ d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\f
 
 d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
+.././Timer0.h:
+
+d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+
 .././Clock.h:
+
+.././UART.h:

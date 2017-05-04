@@ -1,20 +1,16 @@
 #include <avr/io.h>
-#include “Timer0.h”
-/* incluir lo necesario para usar UART0 */
+#include "Timer0.h"
+#include "UART.h"
+#include "Clock.h"
+
 
 int main()
 {
-	/* llamar a función para inicializar puertos E/S */
-	/* llamar a función para inicializar UART0 */
-	Timer0_Ini(); /* Inicializar Timer0 para 1 sec.*/
+
+	UART0_Init(0);
+	timer0_CTC();
+	Clock_Ini(0,10,15);
 	while(1){ 
-		/* == main loop == */
-		if( Timer0_SecFlag() )
-		{ 
-			/* ¿ha pasado 1 Segundo? */
-			/* instrucciones para encender LED */
-			UART0_puts(“1 segundo\n\r”);
-			/* instrucciones para apagar LED */
-		}
+
 	}
 }

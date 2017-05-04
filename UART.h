@@ -1,3 +1,5 @@
+#include <inttypes.h>
+
 char UART0_getchar(void);
 unsigned int atoi(char *str);
 void itoa(char *str, uint16_t number, uint8_t base);

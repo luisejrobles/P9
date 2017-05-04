@@ -6,7 +6,7 @@ void UART0_Init(uint16_t mode)
 	  Si mode es 0    9600,8,N,1
 	  Si mode es 1    19200,8,N,1 */
 	UCSR0A = (1<<U2X0);		//Usart double speed
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0)|~(1<<UCSZ02); // Reception enable | Transmission enable | 9bit disable
+	UCSR0B = ((1<<RXEN0)|(1<<TXEN0)) &(~(1<<UCSZ02)); // Reception enable | Transmission enable | 9bit disable
 	UCSR0C = (3<<UCSZ00);	//8bit enable
 	if(!mode)
 	{
