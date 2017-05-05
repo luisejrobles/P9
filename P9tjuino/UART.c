@@ -1,7 +1,9 @@
 #include <avr/io.h>
+#include "Timer0.h"
+
 void UART0_AutoBaudRate(void)
 {
-	
+	UART0_putchar('c');
 
 }
 void UART0_Init(uint16_t mode)
