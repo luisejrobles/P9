@@ -1,11 +1,12 @@
 #include <avr/interrupt.h>
 #include <inttypes.h>
 #include "Clock.h"
+#include "UART.h"
 
 static uint8_t Flag;
 static uint8_t base;
 
-void Timer2_Init (void)
+void Timer2_Init (uint8_t baseT)
 {
 	/*
 	1. Disable the Timer/Counter2 interrupts by clearing OCIE2x and TOIE2.
@@ -26,12 +27,20 @@ void Timer2_Init (void)
 	TIFR2 = (7<<TOV2);					//Se borran en alto las banderas de interrupcion
 	TIMSK2 = (1<<OCIE2A);				//Interrupt compare A enable
 	sei();								//habilita interrupciones (global) */
-	//Flag = baseT;						//segundos a los cuales llegar
+	if((baseT>=1) && (baseT<=8))
+	{
+		Flag = baseT;						//segundos a los cuales llegar	
+	}else
+	{
+		UART0_puts("\n\rSeg no permitidos, 1seg seleccionado default\n\r");
+		Flag = 1;
+	}
+	base = 0;
 }
 uint8_t Timer2_Flag ( void )
 {
-	if( Flag ){
-		Flag = 0;
+	if( Flag == base ){
+		base = 0;
 		return 1;
 	}
 	else{
@@ -41,10 +50,10 @@ uint8_t Timer2_Flag ( void )
 }
 ISR (TIMER2_COMPA_vect)
 { 
-	
-	//if(Timer2_Flag())
-	//{
+	base++;
+	if(Timer2_Flag())
+	{
 		Clock_Update();
 		Clock_Display();
-	//}
+	}
 }

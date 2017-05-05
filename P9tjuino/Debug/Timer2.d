@@ -12,7 +12,7 @@ Timer2.d Timer2.o: .././Timer2.c \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././Clock.h
+ .././Clock.h .././UART.h
 
 d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
@@ -41,3 +41,5 @@ d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\f
 d:\program\ files\ (x86)\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 .././Clock.h:
+
+.././UART.h:
