@@ -2,6 +2,7 @@
 
 char UART0_getchar(void);
 unsigned int atoi(char *str);
+void UART0_AutoBaudRate(void);
 void itoa(char *str, uint16_t number, uint8_t base);
 void UART0_Init(uint16_t mode);
 void UART0_gets(char *str);

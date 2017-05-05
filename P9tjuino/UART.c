@@ -1,5 +1,9 @@
 #include <avr/io.h>
+void UART0_AutoBaudRate(void)
+{
+	
 
+}
 void UART0_Init(uint16_t mode)
 {
 	/*Función para inicializar el puerto serie del ATmega1280/2560 
