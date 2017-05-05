@@ -14,6 +14,7 @@
 int main(void)
 {
 	UART0_Init(0);
+	Timer2_Init();
 	//Clock_Ini();
     /* Replace with your application code */
     while (1) 
