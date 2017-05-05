@@ -6,6 +6,8 @@ Clock.c
 
 main.c
 
+Timer0.c
+
 Timer2.c
 
 UART.c

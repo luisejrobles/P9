@@ -24,6 +24,18 @@ void timer0_CTC(void)
 
 }
 
+void timer0_8PS(void)
+{
+		TCNT0  = 0;	//incializando timer en 0
+		TCCR0A = (2<<WGM00);	//CTC enable
+		TCCR0B = (2<<CS00);		//8 PS
+		TIMSK0 = (1<<OCIE2A);	//Output cmp match A interrupt enable
+		OCR0A  = 250 -1;		//TOP
+
+		sei();	//interrupciones globales
+
+}
+
 ISR (TIMER0_COMPA_vect)
 { 
 	static uint16_t mSecCnt;

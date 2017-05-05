@@ -13,16 +13,18 @@
 
 int main(void)
 {
+	char str[20];
 	
-	UART0_Init(0);
+	//DDRB = (1<<PB7);			//Puerto b salida
+	//UART0_Init(0);			//Inicializando UART0
 	
 	UART0_AutoBaudRate();
 	UART0_puts("\n\rAutobauding done. UBRR0=");
-	itoa(UBRR0,str,10);
+	itoa(str,UBRR0,10);
 	UART0_puts(str);
-	UART0_puts('\n\r');
+	UART0_puts("\n\r");
 	
-	Timer2_Init(7);
+	Timer2_Init(2);
 	Clock_Ini(23,59,55);
     /* Replace with your application code */
     while (1) 

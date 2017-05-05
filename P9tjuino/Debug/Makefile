@@ -39,6 +39,7 @@ SUBDIRS :=
 C_SRCS +=  \
 ../Clock.c \
 ../main.c \
+../Timer0.c \
 ../Timer2.c \
 ../UART.c
 
@@ -52,24 +53,28 @@ ASM_SRCS +=
 OBJS +=  \
 Clock.o \
 main.o \
+Timer0.o \
 Timer2.o \
 UART.o
 
 OBJS_AS_ARGS +=  \
 Clock.o \
 main.o \
+Timer0.o \
 Timer2.o \
 UART.o
 
 C_DEPS +=  \
 Clock.d \
 main.d \
+Timer0.d \
 Timer2.d \
 UART.d
 
 C_DEPS_AS_ARGS +=  \
 Clock.d \
 main.d \
+Timer0.d \
 Timer2.d \
 UART.d
 
@@ -87,6 +92,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
